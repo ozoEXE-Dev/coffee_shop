@@ -1,0 +1,963 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bun & Brew — بُن وبرو | Specialty Coffee & Bakery, Cairo</title>
+    <meta name="description" content="A cozy specialty coffee shop landing page in Cairo, Egypt, with complete bilingual English and Egyptian Arabic support, filterable menu, and responsive layout." />
+    <meta property="og:title" content="Bun & Brew — بُن وبرو | Specialty Coffee & Bakery, Cairo" />
+    <meta property="og:description" content="A cozy specialty coffee shop landing page in Cairo, Egypt, with complete bilingual English and Egyptian Arabic support, filterable menu, and responsive layout." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=80" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#2C1810" />
+
+    <!-- Google Fonts: Playfair Display (Headings), Inter (Body), Cairo (Arabic) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- =====================================================================
+         Sticky Navigation Header
+         ===================================================================== -->
+    <header class="site-header" id="siteHeader">
+      <div class="container nav-container" id="navContainer">
+        <!-- Brand Logo -->
+        <a href="#home" class="brand-logo" id="brandLogo" aria-label="Bun & Brew Home">
+          <div class="logo-icon-wrap" id="brandLogoIcon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M17 8h1a4 4 0 1 1 0 8h-1"></path>
+              <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path>
+              <line x1="6" y1="2" x2="6" y2="4"></line>
+              <line x1="10" y1="2" x2="10" y2="4"></line>
+              <line x1="14" y1="2" x2="14" y2="4"></line>
+            </svg>
+          </div>
+          <div class="logo-text-group" id="logoTextGroup">
+            <span class="logo-primary" data-i18n="brand_name">Bun & Brew</span>
+            <span class="logo-sub" data-i18n="brand_sub">Specialty Coffee • Cairo</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="nav-links" id="desktopNav" aria-label="Primary navigation">
+          <a href="#home" class="nav-link active" id="navLinkHome" data-i18n="nav_home">Home</a>
+          <a href="#about" class="nav-link" id="navLinkAbout" data-i18n="nav_about">Our Story</a>
+          <a href="#menu" class="nav-link" id="navLinkMenu" data-i18n="nav_menu">Menu</a>
+          <a href="#gallery" class="nav-link" id="navLinkGallery" data-i18n="nav_gallery">Gallery</a>
+          <a href="#testimonials" class="nav-link" id="navLinkTestimonials" data-i18n="nav_testimonials">Reviews</a>
+        </nav>
+
+        <!-- Right Action Controls -->
+        <div class="nav-actions" id="navActions">
+          <!-- Language Toggle Button -->
+          <button
+            type="button"
+            class="lang-toggle-btn"
+            id="langToggleBtn"
+            aria-label="Switch to Egyptian Arabic language"
+            data-i18n-attr="aria-label:lang_toggle_aria"
+          >
+            <svg class="lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+            <span id="langToggleText" data-i18n="lang_toggle_text">العربية</span>
+          </button>
+
+          <!-- Mobile Hamburger Toggle Button -->
+          <button
+            type="button"
+            class="menu-toggle-btn"
+            id="menuToggleBtn"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+          >
+            <svg class="icon-hamburger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer & Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay" aria-hidden="true"></div>
+    <div class="mobile-menu" id="mobileMenu" aria-label="Mobile Navigation">
+      <nav class="mobile-nav-links" id="mobileNavLinks">
+        <a href="#home" class="mobile-nav-link active" id="mobileNavLinkHome" data-i18n="nav_home">Home</a>
+        <a href="#about" class="mobile-nav-link" id="mobileNavLinkAbout" data-i18n="nav_about">Our Story</a>
+        <a href="#menu" class="mobile-nav-link" id="mobileNavLinkMenu" data-i18n="nav_menu">Menu</a>
+        <a href="#gallery" class="mobile-nav-link" id="mobileNavLinkGallery" data-i18n="nav_gallery">Gallery</a>
+        <a href="#testimonials" class="mobile-nav-link" id="mobileNavLinkTestimonials" data-i18n="nav_testimonials">Reviews</a>
+      </nav>
+      <button type="button" class="lang-toggle-btn w-full" id="mobileLangToggleBtn">
+        <svg class="lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="2" y1="12" x2="22" y2="12"></line>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        </svg>
+        <span data-i18n="lang_toggle_text">العربية</span>
+      </button>
+    </div>
+
+    <!-- Main Page Content -->
+    <main id="mainContent">
+      <!-- ===================================================================
+           1. Hero Section — الرئيسية
+           =================================================================== -->
+      <section class="hero-section" id="home">
+        <div class="hero-bg-container" id="heroBgContainer">
+          <img
+            src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1600&q=80"
+            alt="Bun & Brew cozy coffee shop atmosphere in Cairo with warm ambient lighting"
+            class="hero-bg-img"
+            id="heroBgImg"
+            fetchpriority="high"
+          />
+          <div class="hero-overlay" id="heroOverlay"></div>
+        </div>
+
+        <div class="container hero-content" id="heroContent">
+          <div class="hero-badge" id="heroBadge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+            <span data-i18n="hero_badge">Specialty Coffee Sanctuary • Zamalek, Cairo</span>
+          </div>
+
+          <h1 class="hero-title" id="heroTitle" data-i18n="hero_title">
+            Your daily pause, perfectly brewed.
+          </h1>
+
+          <p class="hero-subtitle" id="heroSubtitle" data-i18n="hero_subtitle">
+            From single-origin beans roasted to perfection to warm artisan pastries baked fresh every morning. Welcome to your cozy neighborhood sanctuary in the heart of Cairo.
+          </p>
+
+          <div class="hero-actions" id="heroActions">
+            <a href="#menu" class="btn btn-primary" id="heroBtnMenu">
+              <span data-i18n="hero_btn_menu">Explore Menu</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#about" class="btn btn-secondary-light" id="heroBtnAbout">
+              <span data-i18n="hero_btn_about">Our Story</span>
+            </a>
+          </div>
+
+          <div class="hero-features" id="heroFeatures">
+            <div class="hero-feature-item" id="heroFeature1">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              <span data-i18n="hero_feature_1">Ethically Sourced Beans</span>
+            </div>
+            <div class="hero-feature-item" id="heroFeature2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 14 14"></polyline>
+              </svg>
+              <span data-i18n="hero_feature_2">Fresh Daily Pastries</span>
+            </div>
+            <div class="hero-feature-item" id="heroFeature3">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+              </svg>
+              <span data-i18n="hero_feature_3">Peaceful Cairo Vibes</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           2. About Section — حكايتنا
+           =================================================================== -->
+      <section class="section about-section" id="about">
+        <div class="container">
+          <div class="about-grid" id="aboutGrid">
+            <!-- Left Column: Café Photo & Floating Badge -->
+            <div class="about-image-col" id="aboutImageCol">
+              <div class="about-image-card" id="aboutImageCard">
+                <img
+                  src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1000&q=80"
+                  alt="Cozy sunlit café interior of Bun & Brew in Zamalek, Cairo"
+                  class="about-img"
+                  id="aboutImg"
+                  loading="lazy"
+                />
+                <div class="about-image-badge" id="aboutImageBadge">
+                  <div class="badge-icon" id="aboutBadgeIcon">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                  </div>
+                  <div class="badge-texts" id="aboutBadgeTexts">
+                    <div class="badge-text-primary" data-i18n="about_badge_title">14 Brazil St, Zamalek</div>
+                    <div class="badge-text-sub" data-i18n="about_badge_sub">Daily 7:30 AM – 11:30 PM</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Story & 3 Key Highlights -->
+            <div class="about-content-col" id="aboutContentCol">
+              <span class="section-tag" data-i18n="about_tag">Who We Are</span>
+              <h2 class="section-title" data-i18n="about_title">
+                A Cozy Corner Built on Passion & Honest Hospitality
+              </h2>
+              <p class="about-lead" data-i18n="about_lead">
+                Founded on the quiet, leafy streets of Zamalek, Bun & Brew started with one simple purpose: creating a warm sanctuary where exquisite specialty coffee meets genuine Egyptian warmth.
+              </p>
+
+              <div class="about-highlights" id="aboutHighlights">
+                <!-- Highlight 1: Beans -->
+                <div class="highlight-card" id="highlightCard1">
+                  <div class="highlight-icon-wrap" id="highlightIcon1">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path>
+                      <path d="M12 6a6 6 0 0 0-6 6c0 3.31 2.69 6 6 6s6-2.69 6-6"></path>
+                    </svg>
+                  </div>
+                  <div class="highlight-info" id="highlightInfo1">
+                    <h3 class="highlight-title" data-i18n="about_highlight_1_title">Carefully Selected Beans</h3>
+                    <p class="highlight-desc" data-i18n="about_highlight_1_desc">
+                      Directly traded 100% Arabica beans from Ethiopia, Colombia, and Yemen, roasted locally with delicate flavor profiles.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Highlight 2: Bakery -->
+                <div class="highlight-card" id="highlightCard2">
+                  <div class="highlight-icon-wrap" id="highlightIcon2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                  </div>
+                  <div class="highlight-info" id="highlightInfo2">
+                    <h3 class="highlight-title" data-i18n="about_highlight_2_title">Freshly Baked Pastries</h3>
+                    <p class="highlight-desc" data-i18n="about_highlight_2_desc">
+                      Artisan sourdough croissants, warm brownies, and delicate cakes handcrafted in-house before sunrise every day.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Highlight 3: Cozy Atmosphere -->
+                <div class="highlight-card" id="highlightCard3">
+                  <div class="highlight-icon-wrap" id="highlightIcon3">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                      <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                      <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                      <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                    </svg>
+                  </div>
+                  <div class="highlight-info" id="highlightInfo3">
+                    <h3 class="highlight-title" data-i18n="about_highlight_3_title">Cozy & Relaxing Atmosphere</h3>
+                    <p class="highlight-desc" data-i18n="about_highlight_3_desc">
+                      A calm haven with soft lighting, warm oak tones, quiet playlists, and super-fast Wi-Fi designed for focus or connection.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           3. Menu Section — المنيو
+           =================================================================== -->
+      <section class="section menu-section" id="menu">
+        <div class="container">
+          <div class="section-header" id="menuHeader">
+            <span class="section-tag" data-i18n="menu_tag">Crafted With Care</span>
+            <h2 class="section-title" data-i18n="menu_title">Our Handcrafted Menu</h2>
+            <p class="section-desc" data-i18n="menu_desc">
+              Explore our balanced espresso bar, refreshing cold brews, and fresh morning bakery in Egyptian pounds.
+            </p>
+          </div>
+
+          <!-- Category Filter Buttons -->
+          <div class="menu-filters" id="menuFilters" role="tablist" aria-label="Menu categories">
+            <button
+              type="button"
+              class="filter-btn active"
+              id="filterBtnAll"
+              data-category="all"
+              role="tab"
+              aria-selected="true"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+              <span data-i18n="filter_all">All</span>
+            </button>
+
+            <button
+              type="button"
+              class="filter-btn"
+              id="filterBtnCoffee"
+              data-category="coffee"
+              role="tab"
+              aria-selected="false"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                <line x1="6" y1="1" x2="6" y2="4"></line>
+                <line x1="10" y1="1" x2="10" y2="4"></line>
+                <line x1="14" y1="1" x2="14" y2="4"></line>
+              </svg>
+              <span data-i18n="filter_coffee">Coffee</span>
+            </button>
+
+            <button
+              type="button"
+              class="filter-btn"
+              id="filterBtnCold"
+              data-category="cold"
+              role="tab"
+              aria-selected="false"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 2h10l-2 18H9L7 2z"></path>
+                <path d="M7 6h10"></path>
+              </svg>
+              <span data-i18n="filter_cold">Cold Drinks</span>
+            </button>
+
+            <button
+              type="button"
+              class="filter-btn"
+              id="filterBtnDesserts"
+              data-category="dessert"
+              role="tab"
+              aria-selected="false"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 2v20"></path>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+              <span data-i18n="filter_desserts">Desserts</span>
+            </button>
+          </div>
+
+          <!-- Menu Items Grid (10 curated items) -->
+          <div class="menu-grid" id="menuGrid">
+            <!-- 1. Espresso -->
+            <article class="menu-card" id="menuItemEspresso" data-category="coffee" data-price="55">
+              <div class="menu-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=600&q=80"
+                  alt="Double shot rich espresso with golden crema"
+                  class="menu-img"
+                  loading="lazy"
+                />
+              </div>
+              <div class="menu-card-body">
+                <div class="menu-header-row">
+                  <h3 class="menu-item-name" data-i18n="item_espresso_name">Espresso</h3>
+                  <span class="menu-item-price">EGP 55</span>
+                </div>
+                <p class="menu-item-desc" data-i18n="item_espresso_desc">
+                  Rich double shot with a golden crema and deep notes of roasted hazelnut and dark chocolate.
+                </p>
+                <div class="menu-item-footer">
+                  <span class="menu-category-pill" data-cat="coffee">Coffee</span>
+                  <button type="button" class="order-btn" aria-label="Order Espresso">
+                    <span data-i18n="order_btn">Order at Counter</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- 2. Spanish Latte (Bestseller) -->
+            <article class="menu-card" id="menuItemSpanishLatte" data-category="coffee" data-price="85">
+              <div class="menu-img-wrap">
+                <span class="menu-badge-bestseller">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <span data-i18n="badge_bestseller">Bestseller</span>
+                </span>
+                <img
+                  src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=600&q=80"
+                  alt="Creamy Spanish Latte served with warm textured foam"
+                  class="menu-img"
+                  loading="lazy"
+                />
+              </div>
+              <div class="menu-card-body">
+                <div class="menu-header-row">
+                  <h3 class="menu-item-name" data-i18n="item_spanish_name">Spanish Latte</h3>
+                  <span class="menu-item-price">EGP 85</span>
+                </div>
+                <p class="menu-item-desc" data-i18n="item_spanish_desc">
+                  Velvety espresso harmonized with lightly sweetened condensed milk and micro-textured froth.
+                </p>
+                <div class="menu-item-footer">
+                  <span class="menu-category-pill" data-cat="coffee">Coffee</span>
+                  <button type="button" class="order-btn" aria-label="Order Spanish Latte">
+                    <span data-i18n="order_btn">Order at Counter</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- 3. Cappuccino -->
+            <article class="menu-card" id="menuItemCappuccino" data-category="coffee" data-price="75">
+              <div class="menu-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=600&q=80"
+                  alt="Classic hot cappuccino with cocoa dusting"
+                  class="menu-img"
+                  loading="lazy"
+                />
+              </div>
+              <div class="menu-card-body">
+                <div class="menu-header-row">
+                  <h3 class="menu-item-name" data-i18n="item_cappuccino_name">Cappuccino</h3>
+                  <span class="menu-item-price">EGP 75</span>
+                </div>
+                <p class="menu-item-desc" data-i18n="item_cappuccino_desc">
+                  Equal balance of rich espresso, sweet steamed milk, and a dense cloud of dusted cocoa foam.
+                </p>
+                <div class="menu-item-footer">
+                  <span class="menu-category-pill" data-cat="coffee">Coffee</span>
+                  <button type="button" class="order-btn" aria-label="Order Cappuccino">
+                    <span data-i18n="order_btn">Order at Counter</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- 4. Flat White -->
+            <article class="menu-card" id="menuItemFlatWhite" data-category="coffee" data-price="80">
+              <div class="menu-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1577968897966-3d4325b36b61?auto=format&fit=crop&w=600&q=80"
+                  alt="Silky smooth flat white in ceramic cup"
+                  class="menu-img"
+                  loading="lazy"
+                />
+              </div>
+              <div class="menu-card-body">
+                <div class="menu-header-row">
+                  <h3 class="menu-item-name" data-i18n="item_flatwhite_name">Flat White</h3>
+                  <span class="menu-item-price">EGP 80</span>
+                </div>
+                <p class="menu-item-desc" data-i18n="item_flatwhite_desc">
+                  Double ristretto enveloped in glossy microfoam for a punchy, velvety coffee kick.
+                </p>
+                <div class="menu-item-footer">
+                  <span class="menu-category-pill" data-cat="coffee">Coffee</span>
+                  <button type="button" class="order-btn" aria-label="Order Flat White">
+                    <span data-i18n="order_btn">Order at Counter</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- 5. Cold Brew (Bestseller) -->
+            <article class="menu-card" id="menuItemColdBrew" data-category="cold" data-price="85">
+              <div class="menu-img-wrap">
+                <span class="menu-badge-bestseller">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <span data-i18n="badge_bestseller">Bestseller</span>
+                </span>
+                <img
+                  src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=600&q=80"
+                  alt="Slow-steeped 18-hour cold brew over clear ice"
+                  class="menu-img"
+                  loading="lazy"
+                />
+              </div>
+              <div class="menu-card-body">
+                <div class="menu-header-row">
+                  <h3 class="menu-item-name" data-i18n="item_coldbrew_name">Cold Brew</h3>
+                  <span class="menu-item-price">EGP 85</span>
+                </div>
+                <p class="menu-item-desc" data-i18n="item_coldbrew_desc">
+                  Steeped cold for 18 hours. Ultra-smooth, naturally sweet with low acidity and chocolate undertones.
+                </p>
+                <div class="menu-item-footer">
+                  <span class="menu-category-pill" data-cat="cold">Cold Drink</span>
+                  <button type="button" class="order-btn" aria-label="Order Cold Brew">
+                    <span data-i18n="order_btn">Order at Counter</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- 6. Iced Latte -->
+            <article class="menu-card" id="menuItemIcedLatte" data-category="cold" data-price="80">
+              <div class="menu-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=600&q=80"
+                  alt="Chilled iced latte with layered espresso and milk"
+                  class="menu-img"
+                  loading="lazy"
+                />
+              </div>
+              <div class="menu-card-body">
+                <div class="menu-header-row">
+                  <h3 class="menu-item-name" data-i18n="item_icedlatte_name">Iced Latte</h3>
+                  <span class="menu-item-price">EGP 80</span>
+                </div>
+                <p class="menu-item-desc" data-i18n="item_icedlatte_desc">
+                  Chilled espresso poured over ice and fresh cold whole milk with optional Madagascar vanilla.
+                </p>
+                <div class="menu-item-footer">
+                  <span class="menu-category-pill" data-cat="cold">Cold Drink</span>
+                  <button type="button" class="order-btn" aria-label="Order Iced Latte">
+                    <span data-i18n="order_btn">Order at Counter</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- 7. Karkadeh Sparkler (Signature Cairo Cold Drink) -->
+            <article class="menu-card" id="menuItemKarkadeh" data-category="cold" data-price="70">
+              <div class="menu-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=600&q=80"
+                  alt="Refreshing red hibiscus iced drink with fresh mint"
+                  class="menu-img"
+                  loading="lazy"
+                />
+              </div>
+              <div class="menu-card-body">
+                <div class="menu-header-row">
+                  <h3 class="menu-item-name" data-i18n="item_karkadeh_name">Karkadeh Sparkler</h3>
+                  <span class="menu-item-price">EGP 70</span>
+                </div>
+                <p class="menu-item-desc" data-i18n="item_karkadeh_desc">
+                  Signature cold-brewed Aswan organic hibiscus infused with fresh mint and sparkling soda.
+                </p>
+                <div class="menu-item-footer">
+                  <span class="menu-category-pill" data-cat="cold">Cold Drink</span>
+                  <button type="button" class="order-btn" aria-label="Order Karkadeh Sparkler">
+                    <span data-i18n="order_btn">Order at Counter</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- 8. Chocolate Brownie (Bestseller) -->
+            <article class="menu-card" id="menuItemBrownie" data-category="dessert" data-price="65">
+              <div class="menu-img-wrap">
+                <span class="menu-badge-bestseller">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <span data-i18n="badge_bestseller">Bestseller</span>
+                </span>
+                <img
+                  src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80"
+                  alt="Warm Belgian fudge chocolate brownie with sea salt flakes"
+                  class="menu-img"
+                  loading="lazy"
+                />
+              </div>
+              <div class="menu-card-body">
+                <div class="menu-header-row">
+                  <h3 class="menu-item-name" data-i18n="item_brownie_name">Chocolate Fudge Brownie</h3>
+                  <span class="menu-item-price">EGP 65</span>
+                </div>
+                <p class="menu-item-desc" data-i18n="item_brownie_desc">
+                  Warm Belgian dark chocolate brownie with crackled crust, molten center, and flaky sea salt.
+                </p>
+                <div class="menu-item-footer">
+                  <span class="menu-category-pill" data-cat="dessert">Dessert</span>
+                  <button type="button" class="order-btn" aria-label="Order Chocolate Fudge Brownie">
+                    <span data-i18n="order_btn">Order at Counter</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- 9. Salted Caramel Croissant -->
+            <article class="menu-card" id="menuItemCroissant" data-category="dessert" data-price="75">
+              <div class="menu-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80"
+                  alt="Golden flaky salted caramel butter croissant"
+                  class="menu-img"
+                  loading="lazy"
+                />
+              </div>
+              <div class="menu-card-body">
+                <div class="menu-header-row">
+                  <h3 class="menu-item-name" data-i18n="item_croissant_name">Salted Caramel Croissant</h3>
+                  <span class="menu-item-price">EGP 75</span>
+                </div>
+                <p class="menu-item-desc" data-i18n="item_croissant_desc">
+                  Flaky French butter layers filled with house caramel and topped with toasted pecans.
+                </p>
+                <div class="menu-item-footer">
+                  <span class="menu-category-pill" data-cat="dessert">Dessert</span>
+                  <button type="button" class="order-btn" aria-label="Order Salted Caramel Croissant">
+                    <span data-i18n="order_btn">Order at Counter</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- 10. Pistachio Basque Cheesecake -->
+            <article class="menu-card" id="menuItemCheesecake" data-category="dessert" data-price="95">
+              <div class="menu-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=600&q=80"
+                  alt="Creamy Basque burnt cheesecake drizzled with pistachio sauce"
+                  class="menu-img"
+                  loading="lazy"
+                />
+              </div>
+              <div class="menu-card-body">
+                <div class="menu-header-row">
+                  <h3 class="menu-item-name" data-i18n="item_cheesecake_name">Pistachio Basque Cheesecake</h3>
+                  <span class="menu-item-price">EGP 95</span>
+                </div>
+                <p class="menu-item-desc" data-i18n="item_cheesecake_desc">
+                  Caramelized burnt Basque cheesecake with a custard center, draped in Sicilian pistachio cream.
+                </p>
+                <div class="menu-item-footer">
+                  <span class="menu-category-pill" data-cat="dessert">Dessert</span>
+                  <button type="button" class="order-btn" aria-label="Order Pistachio Basque Cheesecake">
+                    <span data-i18n="order_btn">Order at Counter</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           4. Gallery Section — صور من عندنا
+           =================================================================== -->
+      <section class="section gallery-section" id="gallery">
+        <div class="container">
+          <div class="section-header" id="galleryHeader">
+            <span class="section-tag" data-i18n="gallery_tag">Atmosphere & Moments</span>
+            <h2 class="section-title" data-i18n="gallery_title">Moments at Bun & Brew</h2>
+            <p class="section-desc" data-i18n="gallery_desc">
+              A small glimpse into our daily ritual, morning bakes, and peaceful café corners.
+            </p>
+          </div>
+
+          <div class="gallery-grid" id="galleryGrid">
+            <!-- 1. Latte Art -->
+            <figure class="gallery-item" id="galleryItem1">
+              <img
+                src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80"
+                alt="Barista pouring intricate swan latte art into a ceramic cup"
+                class="gallery-img"
+                loading="lazy"
+              />
+              <figcaption class="gallery-overlay">
+                <div class="gallery-caption-title" data-i18n="gallery_1_title">Latte Art Perfection</div>
+                <div class="gallery-caption-sub" data-i18n="gallery_1_sub">Every pour crafted with care</div>
+              </figcaption>
+            </figure>
+
+            <!-- 2. Cozy Seating -->
+            <figure class="gallery-item" id="galleryItem2">
+              <img
+                src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=800&q=80"
+                alt="Cozy sunlit wooden tables and seating inside Bun & Brew"
+                class="gallery-img"
+                loading="lazy"
+              />
+              <figcaption class="gallery-overlay">
+                <div class="gallery-caption-title" data-i18n="gallery_2_title">Cozy Zamalek Seating</div>
+                <div class="gallery-caption-sub" data-i18n="gallery_2_sub">Natural sunlight & warm oak</div>
+              </figcaption>
+            </figure>
+
+            <!-- 3. Fresh Bakery -->
+            <figure class="gallery-item" id="galleryItem3">
+              <img
+                src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80"
+                alt="Fresh artisan bread, croissants, and morning pastries on display"
+                class="gallery-img"
+                loading="lazy"
+              />
+              <figcaption class="gallery-overlay">
+                <div class="gallery-caption-title" data-i18n="gallery_3_title">Fresh Morning Bakery</div>
+                <div class="gallery-caption-sub" data-i18n="gallery_3_sub">Baked daily before sunrise</div>
+              </figcaption>
+            </figure>
+
+            <!-- 4. Pour Over Coffee -->
+            <figure class="gallery-item" id="galleryItem4">
+              <img
+                src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80"
+                alt="Manual pour-over filter coffee dripper at the brew bar"
+                class="gallery-img"
+                loading="lazy"
+              />
+              <figcaption class="gallery-overlay">
+                <div class="gallery-caption-title" data-i18n="gallery_4_title">Artisanal Pour-Over</div>
+                <div class="gallery-caption-sub" data-i18n="gallery_4_sub">Single-origin pour at bar</div>
+              </figcaption>
+            </figure>
+
+            <!-- 5. People Working / Enjoying Coffee -->
+            <figure class="gallery-item" id="galleryItem5">
+              <img
+                src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=800&q=80"
+                alt="Guests chatting and working on laptops in a cozy atmosphere"
+                class="gallery-img"
+                loading="lazy"
+              />
+              <figcaption class="gallery-overlay">
+                <div class="gallery-caption-title" data-i18n="gallery_5_title">Work & Conversation</div>
+                <div class="gallery-caption-sub" data-i18n="gallery_5_sub">Your peaceful neighborhood hub</div>
+              </figcaption>
+            </figure>
+
+            <!-- 6. Cold Brew Pour -->
+            <figure class="gallery-item" id="galleryItem6">
+              <img
+                src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=80"
+                alt="Chilled cold coffee poured into an iced glass with swirls of milk"
+                class="gallery-img"
+                loading="lazy"
+              />
+              <figcaption class="gallery-overlay">
+                <div class="gallery-caption-title" data-i18n="gallery_6_title">Refreshing Cold Brews</div>
+                <div class="gallery-caption-sub" data-i18n="gallery_6_sub">Slow-dripped for 18 hours</div>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           5. Testimonials Section — رأي الناس فينا
+           =================================================================== -->
+      <section class="section testimonials-section" id="testimonials">
+        <div class="container">
+          <div class="section-header" id="testimonialsHeader">
+            <span class="section-tag" data-i18n="testimonials_tag">Guest Love</span>
+            <h2 class="section-title" data-i18n="testimonials_title">What Our Guests Say</h2>
+            <p class="section-desc" data-i18n="testimonials_desc">
+              Real feedback from our wonderful community of coffee lovers in Cairo.
+            </p>
+          </div>
+
+          <div class="testimonials-grid" id="testimonialsGrid">
+            <!-- Review 1 -->
+            <article class="testimonial-card" id="testimonialCard1">
+              <div>
+                <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"></path>
+                </svg>
+                <div class="star-rating" aria-label="5 out of 5 stars">
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </div>
+                <p class="testimonial-text" data-i18n="review_1_text">
+                  "Bun & Brew is my go-to morning spot before heading to the studio. The Spanish Latte is by far the best in Cairo, and the natural sunlight makes it an incredible place to sketch and think."
+                </p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-avatar" aria-hidden="true">KM</div>
+                <div class="author-info">
+                  <span class="author-name" data-i18n="review_1_author">Karim El-Masry</span>
+                  <span class="author-role" data-i18n="review_1_role">Architect • Zamalek Resident</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Review 2 -->
+            <article class="testimonial-card" id="testimonialCard2">
+              <div>
+                <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"></path>
+                </svg>
+                <div class="star-rating" aria-label="5 out of 5 stars">
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </div>
+                <p class="testimonial-text" data-i18n="review_2_text">
+                  "The warm chocolate brownie paired with their 18-hour cold brew is pure therapy! The staff remembers your regular order and the cozy jazz soundtrack never disappoints."
+                </p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-avatar" aria-hidden="true">NA</div>
+                <div class="author-info">
+                  <span class="author-name" data-i18n="review_2_author">Nourhan Adel</span>
+                  <span class="author-role" data-i18n="review_2_role">Content Creator • Maadi</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Review 3 -->
+            <article class="testimonial-card" id="testimonialCard3">
+              <div>
+                <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"></path>
+                </svg>
+                <div class="star-rating" aria-label="5 out of 5 stars">
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </div>
+                <p class="testimonial-text" data-i18n="review_3_text">
+                  "As a specialty coffee purist, their pour-over single-origin beans and espresso extraction are consistently dialed in. Truly world-class quality with genuine Egyptian warmth."
+                </p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-avatar" aria-hidden="true">YM</div>
+                <div class="author-info">
+                  <span class="author-name" data-i18n="review_3_author">Youssef Mansour</span>
+                  <span class="author-role" data-i18n="review_3_role">Coffee Roaster & Enthusiast • Heliopolis</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =====================================================================
+         Footer
+         ===================================================================== -->
+    <footer class="site-footer" id="siteFooter">
+      <div class="container">
+        <div class="footer-top" id="footerTop">
+          <!-- Col 1: Brand & Tagline -->
+          <div class="footer-brand-col" id="footerBrandCol">
+            <a href="#home" class="footer-logo" id="footerLogo" aria-label="Bun & Brew Home">
+              <div class="logo-icon-wrap">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M17 8h1a4 4 0 1 1 0 8h-1"></path>
+                  <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path>
+                </svg>
+              </div>
+              <span data-i18n="brand_name">Bun & Brew</span>
+            </a>
+            <p class="footer-tagline" data-i18n="footer_tagline">
+              Your daily pause, perfectly brewed. Serving Cairo's finest specialty beans and artisan bakes with true warmth.
+            </p>
+            <div class="footer-social-links" id="footerSocialLinks">
+              <a href="https://instagram.com" class="social-btn" id="socialInsta" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </a>
+              <a href="https://facebook.com" class="social-btn" id="socialFb" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+              </a>
+              <a href="https://tiktok.com" class="social-btn" id="socialTiktok" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Col 2: Navigation Links -->
+          <div class="footer-links-col" id="footerLinksCol">
+            <h3 class="footer-heading" data-i18n="footer_links_title">Quick Links</h3>
+            <ul class="footer-links-list">
+              <li><a href="#home" class="footer-link" data-i18n="nav_home">Home</a></li>
+              <li><a href="#about" class="footer-link" data-i18n="nav_about">Our Story</a></li>
+              <li><a href="#menu" class="footer-link" data-i18n="nav_menu">Menu</a></li>
+              <li><a href="#gallery" class="footer-link" data-i18n="nav_gallery">Gallery</a></li>
+              <li><a href="#testimonials" class="footer-link" data-i18n="nav_testimonials">Reviews</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Hours -->
+          <div class="footer-hours-col" id="footerHoursCol">
+            <h3 class="footer-heading" data-i18n="footer_hours_title">Opening Hours</h3>
+            <div class="footer-info-list">
+              <div class="footer-info-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <div>
+                  <div data-i18n="footer_hours_text">Monday – Sunday: 7:30 AM – 11:30 PM</div>
+                  <span class="footer-hours-badge" data-i18n="footer_hours_sub">Kitchen & Bakery open all day</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Col 4: Cairo Location & Contact -->
+          <div class="footer-contact-col" id="footerContactCol">
+            <h3 class="footer-heading" data-i18n="footer_contact_title">Visit Us in Cairo</h3>
+            <div class="footer-info-list">
+              <div class="footer-info-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span data-i18n="footer_address">14 Brazil Street, Zamalek, Cairo, Egypt</span>
+              </div>
+              <div class="footer-info-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <a href="tel:+20227359840" class="footer-link" data-i18n="footer_phone">+20 2 2735 9840</a>
+              </div>
+              <div class="footer-info-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <a href="mailto:salam@bunandbrewcairo.com" class="footer-link" data-i18n="footer_email">salam@bunandbrewcairo.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom" id="footerBottom">
+          <div class="footer-disclaimer" data-i18n="footer_disclaimer">
+            Fictional showcase café crafted for developer portfolio.
+          </div>
+          <div class="footer-copyright" data-i18n="footer_copyright">
+            © 2026 Bun & Brew Cairo. All rights reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating Back to Top Button -->
+    <button type="button" class="back-to-top" id="backToTopBtn" aria-label="Back to top of page">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+
+    <!-- Toast Notice Popup -->
+    <div class="toast-notice" id="toastNotice" role="status" aria-live="polite">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+      </svg>
+      <span id="toastText"></span>
+    </div>
+
+    <!-- Vanilla JavaScript -->
+    <script src="./script.js"></script>
+  </body>
+</html>
+
+
